@@ -10,6 +10,8 @@ mirror_repository:
   stage: mirror
   only:
     - triggers
+  before_script:
+    - apk add git
   script:
     - git clone $SRC_ORIGIN gh-mirror
     - cd gh-mirror
