@@ -4,8 +4,10 @@ Example repository for mirroring from github to gitlab using webhooks and pipeli
 
 ## prepare gitlab project
 
-1. create a [project scoped access token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) with `write_repository, api` flags
+1. create a [project scoped access token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) with maintainer role and `write_repository, api` flags
+    ![access token config](gl_access_token_config.png)
 1. create a [project scoped ci variable](https://docs.gitlab.com/ee/ci/variables/index.html#for-a-project) named `ACCESS_TOKEN` and store the access token within
+    ![ci variable config](gl_ci_variable_config.png)
 1. create a [pipeline trigger token](https://docs.gitlab.com/ee/ci/triggers/#create-a-trigger-token)
 1. add the following job to your `.gitlab-ci.yml`:
     ```yaml
