@@ -17,6 +17,6 @@ mirror_repository:
     - git clone $SRC_ORIGIN gh-mirror
     - cd gh-mirror
     - git remote remove origin
-    - git remote add origin https://oauth2:$ACCESS_TOKEN@gitlab.com/superewald/gitlab-repo-mirror
+    - git remote add origin https://oauth2:${ACCESS_TOKEN}@gitlab.com/superewald/gitlab-repo-mirror
     - git push --prune --all
     - git push --prune --tags
