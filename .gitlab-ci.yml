@@ -1,0 +1,19 @@
+image: alpine
+
+stages:
+  - mirror
+
+mirror_repository:
+  variables:
+    SRC_ORIGIN: https://github.com/superewald/gitlab-repo-mirror
+    DEST_ORIGIN: https://gitlab.com/superewald/gitlab-repo-mirror
+  stage: mirror
+  only:
+    - triggers
+  script:
+    - git clone $SRC_ORIGIN gh-mirror
+    - cd gh-mirror
+    - git remote remove origin
+    - git remote add origin $DEST_ORIGIN
+    - git push --prune --all
+    - git push --prune --tags
