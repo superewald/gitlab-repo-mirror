@@ -6,7 +6,6 @@ stages:
 mirror_repository:
   variables:
     SRC_ORIGIN: https://github.com/superewald/gitlab-repo-mirror
-    DEST_ORIGIN: https://oauth2:$ACCESS_TOKEN@gitlab.com/superewald/gitlab-repo-mirror
   stage: mirror
   only:
     - triggers
@@ -18,6 +17,6 @@ mirror_repository:
     - git clone $SRC_ORIGIN gh-mirror
     - cd gh-mirror
     - git remote remove origin
-    - git remote add origin $DEST_ORIGIN
+    - git remote add origin https://oauth2:$ACCESS_TOKEN@gitlab.com/superewald/gitlab-repo-mirror
     - git push --prune --all
     - git push --prune --tags
