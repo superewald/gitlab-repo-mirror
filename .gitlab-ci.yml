@@ -6,6 +6,7 @@ stages:
 mirror_repository:
   variables:
     SRC_ORIGIN: https://github.com/superewald/gitlab-repo-mirror
+    ACCESS_TOKEN: $ACCESS_TOKEN
   stage: mirror
   only:
     - triggers
