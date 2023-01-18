@@ -6,12 +6,14 @@ stages:
 mirror_repository:
   variables:
     SRC_ORIGIN: https://github.com/superewald/gitlab-repo-mirror
-    DEST_ORIGIN: https://gitlab.com/superewald/gitlab-repo-mirror
+    DEST_ORIGIN: https://oauth2:$ACCESS_TOKEN@gitlab.com/superewald/gitlab-repo-mirror
   stage: mirror
   only:
     - triggers
   before_script:
     - apk add git
+    - git config user.name ci-bot
+    - git config user.email "ci-bot@example.xyz"
   script:
     - git clone $SRC_ORIGIN gh-mirror
     - cd gh-mirror
