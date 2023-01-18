@@ -15,7 +15,6 @@ mirror_repository:
     - git config user.name ci-bot
     - git config user.email "ci-bot@example.xyz"
   script:
-    - echo $ACCESS_TOKEN
     - git clone $SRC_ORIGIN gh-mirror
     - cd gh-mirror
     - git remote remove origin
